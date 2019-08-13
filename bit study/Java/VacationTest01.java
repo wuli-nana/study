@@ -6,8 +6,12 @@ public class VacationTest01 {
 	public void order(int[] arr){
 		if(arr == null)
 			return;
+		//数组为空时，返回
+		
 		int i = 0;
 		int j = arr.length-1;
+		
+		//奇数偶数调换位置
 		while(i<j){
 			if(isEven(arr[i]) && !isEven(arr[j])){
 				int temp = arr[i];
@@ -25,12 +29,16 @@ public class VacationTest01 {
 			}
 		}
 	}
+	
+	//判断奇偶数
 	public boolean isEven(int n){
 		return (n & 1) == 0;
 	}
+	
 	public static void main(String[] args){
 		VacationTest01 test = new VacationTest01();
 		int[] arr= {1,2,3,4,5,6,12,7,8,9,10};
+		
 		test.order(arr);
 		for(int i = 0;i<arr.length ;i++){
 			System.out.print(arr[i]+",");
