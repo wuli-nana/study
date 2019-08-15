@@ -16,7 +16,7 @@ public class ArrayList{
 		}
 		size = array.length;
 	}
-	//插入s
+	//插入
 	public void insert(int index,int elem){
 		if(index < 0 || index > size){
 			System.out.println("输入坐标有误，取值范围为[0,size]");
