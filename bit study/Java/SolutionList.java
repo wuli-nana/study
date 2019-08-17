@@ -52,6 +52,14 @@ public class SolutionList{
 		}
 		return rhead;
 	}
+	//寻找尾结点
+	public static Node GetLast(Node head){
+		Node last = head;
+		while(last.next != null){
+			last = last.next;
+		}
+		return last;
+	}
 	//寻找中间结点
 		public static ListNode getMid(ListNode head) {
         ListNode fast = head;
@@ -116,6 +124,43 @@ public class SolutionList{
         
         return true;
 	}
+	public static ListNode divideList(ListNode head, int K){
+		ListNode cur = head;
+		
+		ListNode smallLast = null;
+		ListNode small = null;
+		ListNode big = null;
+		ListNode bigList = null;
+		while(cur != null ){
+			if(cur.val < K){
+				if(small == null){
+					small = cur;
+				}else{
+					smallList.next = cur;
+				}
+				smallList = cur;
+				
+			}
+			if(cur.val >= K){
+				if(big == null){
+					big = cur;
+				}else{
+					 bigList.next = cur;
+				}
+				bigList = cur;
+			}
+		}
+			
+		if(small == null){
+			return big;
+		}else{
+			smallList.next = big;
+				if(bigList != null){
+				bigList.next = null;
+			}
+			return small;
+		}
+	}
 	public static void main(String[] args){
 		ListNode head = createLinkedList();
 		displayList(head);
@@ -125,7 +170,8 @@ public class SolutionList{
 		displayList(head);
 		
 		System.out.println(chkPalindrome(head));
-		
+		divideList(head, 5);
+		displayList(head);
 	}
 	
 }

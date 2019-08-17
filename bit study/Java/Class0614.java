@@ -1,4 +1,5 @@
-class ListNode 
+
+              class ListNode 
 {
 	public int value;
 	public listNode next;
