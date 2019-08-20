@@ -168,10 +168,13 @@ public class MyLinkedList implements List {
         }
         //头删
         if(index == 0){
-            head = head.next;
+            if(head == null){
+                return -1;
+            }
             if(head.next != null){
                 head.prev = null;
             }
+            head = head.next;
             size--;
             return 0;
         }
