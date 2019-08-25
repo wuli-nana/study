@@ -11,7 +11,7 @@ public class TreeOperation {
 
         a.left = b;a.right = c;
         b.left = d;b.right = e;
-        c.right = f;
+        c.right = f;d.right = g;
         f.right = h;
         return a;
     }
