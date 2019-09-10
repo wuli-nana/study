@@ -5,53 +5,76 @@ public class quset2 {
     public static class Node{
         int val;
         Node next;
-        Node rando;
+        Node random;
     }
-    public static Node copy(Node head){
-        Node p = head;
-        while(p != null){
-            Node q = new Node();
-            q.val = p.val;
-            q.next = p.next;
+
+    /**
+     * 链表复制，老方法
+     * @param head 头结点
+     * @return 返回头结点
+     */
+
+    public static Node copyNode(Node head) {
+        Node cur = head;
+        //复制链表的val与next
+        // 并将cur.next指向pev，pev.next指向cur
+        while (cur != null) {
+            Node pev = new Node();
+            pev.val = cur.val;
+            pev.next = cur.next;
+
+            cur.next = pev;
+            cur = pev.next;
         }
-        p = head;
-        while(p != null){
-            Node q = p.next;
-            if(p.random != null){
-                q.random = p.random.next;
-            }else {
-                q.random = null;
+        cur = head;
+        //复制random
+        while (cur != null) {
+            Node pev = cur.next;
+            if (cur.random != null) {
+                pev.random = cur.random.next;
+            } else {
+                pev.random = null;
             }
-            p = q.next;
+            cur = pev.next;
         }
         return head;
     }
-    public static Node copy2(Node head){
-        Node p = head;
+
+    /**
+     * 用Map的形式来进行复制链表
+     * @param head 头结点
+     * @return 头结点
+     */
+    public static Node copyNode2(Node head){
+        Node cur= head;
         Node result = null;
         Node last = null;
-        Map<Node ,Node> map = new HashMap<>();
-        while (p != null) {
-            Node q = new Node();
-            q.val = p.val;
-            if (result == null) {
-                result = q;
-            } else {
-                last.next = q;
+        Map<Node,Node> map = new HashMap<>();
+        //复制链表的val与next
+        while(cur != null){
+            Node pev = new Node();
+            pev.val = cur.val;
+
+            if(result == null){
+                result = pev;
             }
-            last = q;
-            map.put(p, q);
-            p = p.next;
+            else{
+                last.next = pev;
+            }
+            last = pev;
+            map.put(cur,pev);
+            cur = cur.next;
         }
-        p = head;
-        Node q = result;
-        while (p != null){
-            q.random = map.get(p.random);
-            p = p.next;
-            q = q.next;
+
+        cur = head;
+        Node pev = result;
+        //复制链表的random
+        while(cur != null){
+            pev.random = map.get(cur.random);
+            cur = cur.next;
+            pev = pev.next;
         }
         return result;
     }
-
 }
 
