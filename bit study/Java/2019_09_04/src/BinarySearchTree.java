@@ -16,12 +16,9 @@ public class BinarySearchTree {
             if(root == null){
                 return -1;
             }
-            if(){
-
-            }
             List<String> list = new LinkedList<>();
             if (defaultValue == key) {
-                list.add()
+
             }
             return -1;
         }
@@ -36,6 +33,34 @@ public class BinarySearchTree {
         while(!queue.isEmpty()){
 
         }
+        return null;
+
     }
+    public int remove (int key){
+        Node cur = root;
+        while (cur != null){
+            if(key != cur.key){
+
+            }
+        }
+        return -1;
+    }
+    public static class Entry{
+        private  int key;
+        private  int val;
+
+        public int getKey(){
+            return key;
+        }
+        public int getVal(){
+            return val;
+        }
+        public Set<Map.Entry> entrySet(){
+            Map<Integer,Integer> map = new HashMap<>();
+
+        }
+    }
+    //public Set<Map.Entry<Integer,Integer>> entrySet();
+
 }
 */
